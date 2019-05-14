@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import mapReduxStateToProps from './modules/mapReduxStateToProps';
+import mapReduxStateToProps from '../../modules/mapReduxStateToProps';
 
 class App extends Component {
   constructor(props) {
