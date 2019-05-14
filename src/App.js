@@ -27,13 +27,20 @@ class App extends Component {
 
   render() {
     console.log(this.props);
+    const kittyArray = this.props.reduxState.firstReducer.map((what, where) => {
+      return <li key={where}>{what}</li>
+    });
     return (
       <div className="App">
         <h1>React Reducers Intro</h1>
-        <p>Current Kitty Name: {this.props.reduxState.firstReducer.kittyList}</p>
+        <p>Current Kitty Names:</p>
+        <ul>
+          {kittyArray}
+        </ul>
         <input placeholder="Kitty Name" onChange={this.changeKittyName} />
         <button onClick={this.clickMe}>Click Me</button>
         <br />
+        <input placeholder="Doggo Name" />
         <button onClick={this.noClickMe}>No Click Me</button>
       </div>
     );

@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
-const firstReducer = (state, action) => {
+const firstReducer = (state = [], action) => {
     const kittyName = action.kittyName;
     if (action.type === 'KITTY') {
         console.log(`First reducer.`);
@@ -14,17 +14,15 @@ const firstReducer = (state, action) => {
         console.log(`action: `, action);
         console.log(`kittyName: `, kittyName);
 
-        return {
-            kittyList: [
-                ...state.kittyList,
+        return [
+                ...state,
                 kittyName
-            ],
-        };
+            ];
     }
 
-    return {
+    return [
         ...state
-    };
+    ];
 };
 
 const secondReducer = (state, action) => {
