@@ -31,3 +31,17 @@
     transform: rotate(360deg);
   }
 }
+
+.blocks {
+  margin: 0 -10px;
+  font-size: 0;
+  text-align: center;
+}
+
+.blocks > * {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1rem;
+  vertical-align: top;
+}

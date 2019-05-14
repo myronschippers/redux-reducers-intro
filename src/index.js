@@ -25,15 +25,20 @@ const firstReducer = (state = [], action) => {
     ];
 };
 
-const secondReducer = (state, action) => {
-    if (action.type === 'DOGGO') {
-        console.log(`Second reducer.`);
-        console.log(`state: `, state);
-        console.log(`action: `, action);
+const secondReducer = (state = [], action) => {
+    if (action.type !== 'DOGGO') {
+        return state;
     }
-    return {};
-}
 
+    const {
+        dog,
+    } = action;
+
+    return [
+        ...state,
+        dog,
+    ];
+}
 
 const storeInstance = createStore(
     combineReducers({
