@@ -26,16 +26,18 @@ class App extends Component {
     this.props.dispatch(dispatchedObject);
   }
 
-  changeDoggoName = (event) => {
-    this.setState({
-      enteredDoggoName: event.target.value
-    });
-  }
+  changeField = (event) => {
+    const stateUpdate = {};
+    const inputStateType = event.target.dataset.type;
+    const inputValue = event.target.value;
 
-  changeKittyName = (event) => {
-    this.setState({
-      enteredKittyName: event.target.value
-    });
+    if (inputStateType === 'kitty') {
+      stateUpdate.enteredKittyName = inputValue;
+    } else if (inputStateType === 'doggo') {
+      stateUpdate.enteredDoggoName = inputValue;
+    }
+
+    this.setState(stateUpdate);
   }
 
   render() {
@@ -52,12 +54,12 @@ class App extends Component {
         <h1>React Reducers Intro</h1>
 
         <div>
-          <input placeholder="Kitty Name" onChange={this.changeKittyName} />
+          <input placeholder="Kitty Name" onChange={this.changeField} data-type="kitty" />
           <button onClick={this.clickMe}>Click Me</button>
         </div>
         
         <div>
-          <input placeholder="Doggo Name" onChange={this.changeDoggoName} />
+          <input placeholder="Doggo Name" onChange={this.changeField} data-type="doggo" />
           <button onClick={this.addDoggo}>Add Doggo</button>
         </div>
 
